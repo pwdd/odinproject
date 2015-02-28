@@ -27,8 +27,7 @@ var listPrimes = function(n) {
 };
 
 var primeFactor = function(n) {
-	// returns list of prime factors;
-	// since list is ordered, the last is going to be the biggest
+	// returns largest number from list of prime factors;
 	var factors = [];
 	var lop = listPrimes(n);
 	var lopLenght = lop.length;
@@ -40,6 +39,6 @@ var primeFactor = function(n) {
 			n = n / ppf;
 		}
 	}
-	var highest = factors.pop();
-	return highest;
+	var largest = Math.max.apply(Math, factors);
+	return largest;
 };
