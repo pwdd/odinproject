@@ -1,8 +1,9 @@
 $(document).ready(function() {
 	for (var i = 1; i <= 16; i++) {
-		$('#container').append('<div id="box-' + i + '" class="grid"></div>');
-		$('.grid').mouseenter(function() {
-			$('.grid').addClass('blue');
-		});
+		$('#container').append('<div id="' + i + '" class="grid"></div>');
 	}
+	$('#container > div').mouseenter(function() {
+		$(this).addClass('blue');
+	});
 });
+
