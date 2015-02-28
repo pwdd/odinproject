@@ -1,15 +1,22 @@
+html { box-sizing: border-box; }
+
+*, *:before, *:after { box-sizing: inherit; }
+
 #container {
-	width: 50%;
+	width: 960px;
 	margin: 20px auto;
 	.grid {
 		background-color: #fff;
-		width: 120px;
-		height: 120px;
 		border: 1px solid blue;
 		display: inline-block;
-		margin: 10px;
+		margin-bottom: -4px;
 		&.blue {
 			background-color: blue;
 		}
 	}
+}
+
+#new_grid {
+	display: block;
+	margin: 40px auto;
 }
