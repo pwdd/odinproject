@@ -1,0 +1,61 @@
+body {
+	font-family: arial, sans-serif;
+	font-size: 13px;
+	color: #404040;
+}
+
+.clear {
+	clear: both;
+}
+
+#menu {
+	float: right;
+	ul {
+		list-style-type: none;
+		li {
+			display: inline-block;
+			margin-right: 20px;
+		}
+	}
+}
+
+#sign-in {
+	background-color: #4285f4;
+	border: 1px solid #4285f4;
+	color: #fff;
+	font-weight: bold;
+	padding: 5px 12px;
+	border-radius: 5px;
+}
+
+#google {
+	width: 540px;
+	margin: 10% auto;
+	text-align: center;
+}
+
+#logo {
+	width: 269px;
+	height: 95px;
+	margin: 0 auto;
+}
+
+input {
+	width: 100%;
+	margin-top: 30px;
+	margin-bottom: 17px;
+	padding: 6px;
+}
+
+#search-buttons {
+	button {
+		border: 1px solid #c6c6c6;
+		background-color: #f1f1f1;
+		color: #444;
+		font-weight: bold;
+		padding: 6px 10px;
+		&#google-search {
+			margin-right: 20px;
+		}
+	}
+}
