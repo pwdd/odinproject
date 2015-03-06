@@ -10,7 +10,7 @@ def fib_even(n)
 		new_fib_number = list_of_numbers[-1] + list_of_numbers[-2]
 		list_of_numbers << new_fib_number
 	end
-	return list_of_numbers
+	return list_of_numbers.select{ |e| e.even? }.reduce(:+)
 end
 
 puts fib_even(4000000)	
