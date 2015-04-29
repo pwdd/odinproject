@@ -67,7 +67,7 @@ that was found in the original string and how many times it was found.
 
 def substrings(string, dictionary)
 	result = Hash.new(0)
-	arr = string.split(" ")
+	arr = string.downcase.split(" ")
 	arr.each do |word|
 		dictionary.each do |sub|
 			result[sub] += 1 if word[sub]
