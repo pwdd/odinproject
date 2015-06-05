@@ -26,6 +26,30 @@ module Enumerable
 		self.my_each { |item| selected << item if yield(item)}
 		selected
 	end
+
+	def my_all?
+		self.my_each do |value| 
+			unless yield(value)
+				return false
+			else
+				return true
+			end
+		end
+	end
+
+	def my_any?
+		self.my_each { |value| return true if yield(value) }		
+	end
+
+	def my_none?
+		self.my_each do |variable|
+			if yield(variable)
+				return false
+			end			
+		end
+		return true
+	end
+	
 end
 
 hash = Hash.new
@@ -35,3 +59,39 @@ print hash   #=> {"cat"=>0, "dog"=>1, "wombat"=>2}
 puts
 
 print (1..10).my_select {|i|  i % 3 == 0 }   #=> [3, 6, 9]
+
+puts
+
+print %w[ant bear cat].my_all? { |word| word.length >= 3 } #=> true
+puts
+print %w[ant bear cat].my_all? { |word| word.length >= 4 } #=> false
+
+puts
+
+print %w[ant bear cat].my_any? { |word| word.length >= 3 } #=> true
+puts
+print %w[ant bear cat].my_any? { |word| word.length >= 4 } #=> true
+
+puts
+
+print %w{ant bear cat}.my_none? { |word| word.length == 5 } #=> true
+puts
+print %w{ant bear cat}.my_none? { |word| word.length >= 4 } #=> false
+
+puts
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
