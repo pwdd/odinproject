@@ -14,9 +14,6 @@ $(function() {
 		$('#container > div').mouseenter(function() {
 			$(this).addClass('blue');
 		});
-		$('#container > div').mouseleave(function() {
-			$(this).removeClass('blue');
-		});
 	};
 
 	makeGrid(gridSize);

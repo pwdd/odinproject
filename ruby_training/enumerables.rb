@@ -4,6 +4,7 @@ Create #my_each, a method that is identical to
  You'll need to remember the yield statement. 
  Make sure it returns the same thing as #each 
  as well.	
+ Same for other methods
 =end
 
 module Enumerable
@@ -49,8 +50,34 @@ module Enumerable
 		end
 		return true
 	end
+
+	def my_count(arg = nil)
+		total = 0
+		if arg
+			self.my_each { |i| total += 1 if i == arg }				
+		elsif block_given?
+			self.my_each { |i| total += 1 if yield(i) == true }
+		else
+			total = self.size
+		end
+		return total
+	end
+
+	def my_map
+		ary = []
+		self.my_each do |i|
+			ary << yield(i)
+		end
+		return ary
+	end
+
+	def my_inject
+		
+	end
 	
 end
+
+# everything from here down is only for testing purposes
 
 hash = Hash.new
 %w(cat dog wombat).my_each_with_index {|item, index| hash[item] = index }
@@ -80,7 +107,18 @@ print %w{ant bear cat}.my_none? { |word| word.length >= 4 } #=> false
 
 puts
 
+ary = [1, 2, 4, 2]
+print ary.my_count               #=> 4
+puts
+print ary.my_count(2)            #=> 2
+puts
+print ary.my_count{ |x| x%2==0 } #=> 3
 
+puts
+
+print (1..4).my_map { |i| i*i }      #=> [1, 4, 9, 16]
+
+puts
 
 
 
