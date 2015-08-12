@@ -72,9 +72,21 @@ module Enumerable
 	end
 
 	def my_inject
-		
+		memo = nil
+		self.my_each{|value|
+			if memo.nil?
+				memo = value
+			else 
+				memo = yield(memo, value)
+			end
+		}
+		return memo
 	end
 	
+end
+
+def multiply_els(arr)
+	arr.my_inject { |product, i| product * i }
 end
 
 # everything from here down is only for testing purposes
@@ -120,10 +132,18 @@ print (1..4).my_map { |i| i*i }      #=> [1, 4, 9, 16]
 
 puts
 
+print (5..10).my_inject {|sum, n| sum + n }     #=> 45
 
+puts
 
+longest = %w{ cat sheep bear }.my_inject do |memo, word|
+   memo.length > word.length ? memo : word
+end
+print longest                                        #=> "sheep"
 
+puts 
 
+print multiply_els([2, 4, 5])   #=> 40
 
 
 
