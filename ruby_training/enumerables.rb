@@ -71,6 +71,15 @@ module Enumerable
 		return ary
 	end
 
+	def my_map_modification(&proc)
+		return self unless block_given?
+		array = []
+		self.my_each do |value|
+			array << proc.call(value)
+		end
+		return array
+	end
+
 	def my_inject
 		memo = nil
 		self.my_each{|value|
@@ -144,6 +153,12 @@ print longest                                        #=> "sheep"
 puts 
 
 print multiply_els([2, 4, 5])   #=> 40
+
+puts 
+
+print (1..4).my_map_modification { |i| i*i }  #=> [1, 4, 9, 16]
+
+puts
 
 
 
