@@ -28,6 +28,14 @@ module TicTacToe
         player = Player.new(input)
         expect(player.name).to eq "Stranger"
       end
+    end
+
+    context "#get_cell" do
+      it "returns the cell based on the (x, y) coordinates" do
+        grid = [["", "", ""], ["", "", "something"], ["", "", ""]]
+        board = Board.new(grid: grid)
+        expect(board.get_cell(2, 1)).to eq "something"
+      end
     end 
 
   end
